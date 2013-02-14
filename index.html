@@ -13,41 +13,67 @@
     	<div class="navbar-inner">
     			<div class="container">
     				<ul class="nav">
-    					<li><i class="icon-home icon-white center"></i></li>
+    					<li><a href="index.html"><i class="icon-home icon-white center"></a></i></li>
     				<li class="span2"><a class="brand" href="index.html">ememorato</a></li>
     				<li class"span2"><a class="brand" href="blog.html">blog</a></li>
-    				<li><a class="brand" href="http://about.me/ememorato" target="_blank">about</a></li>
+    				<li><a id="hideabout" onclick="showabout();return false;" class="brand" href="#">about</a></li>
     			</ul>
     			</div>
     		</div>
     	</div>
     	<div class="hero-unit row">
-    		<img src="Mustachon.png" class="span3 img-circle">
-    		<h1 class="offset1 span8">ememorato</h1>
-    		<p class="offset1 span4">I've been told life works in a certain way and I should obey the rules. <b>I strongly disagree.</b></p>
-    		<br>
-    		<button class="btn btn-inverse btn-large offset1 span2" onclick="showbio();return false;">Read more</button>
-    	</br>
+    		<div class="span4 offset1">
+    		<img src="Mustachon.png" class="img-circle">
+    		</div>
+    		<div class="span4 offset1">
+    		<h1>ememorato</h1>
+    		<p>I've been told life works in a certain way and I should obey the rules. <b>I strongly disagree.</b></p>
+    			<button id="btn" class="btn btn-inverse btn-large" onclick="showbio();return false;">Read more</button>
+    		</div>
     	</div>
-    	<div id="bio" class="container hide row-fluid">
-    		<div>
-    		<h2 class="offset1 span6">How it all began...</h2>
-    		</div>
-    		<div>
-    		<img src="manu.jpg" class="img-rounded span4">
-    		</div>
-    		<div>
-    		<p class="offset1 span6">While being in transit through foggy and uncertain times, life led me to a place where things are done differently. A place where freedom combined with intelligence is a royal combination. A place where the future morphs into present, leaving the rest of the world just watching, in awe. It is a place where drive and passion are highly contagious, ready to be absorbed through simple, automatic breathing. This is where my path began. I still don't know what will happen. The fog has not gone away entirely. I'm still moving forward.</p>
-    		</div>
-    		<div>
+    	<div id="aboutme" class="hide">
+    		<iframe src="http://about.me/ememorato" width="100%" height="800"></iframe>
+    	</div>
+    	<div id="bio" class="container hide row">
+    		<div class="span6 offset1">
+    		<h2>How it all began...</h2>
+    		<p>While being in transit through foggy and uncertain times, life led me to a place where things are done differently. A place where freedom combined with intelligence is a royal combination. A place where the future morphs into present, leaving the rest of the world just watching, in awe. It is a place where drive and passion are highly contagious, ready to be absorbed through simple, automatic breathing. This is where my path began. I still don't know what will happen. The fog has not gone away entirely. I'm still moving forward.</p>
     		<button class="btn btn-inverse btn-small" onclick="hidebio();return false;">Hide text</button>
+    		</div>
+    		<div class="span3 offset1">
+    		<img src="manu.jpg" class="img-rounded">
     		</div>
     	</div>
 </body>
 <script>
 
+var aboutvisible=false;
+var changebtn=false;
+
+function showabout() {
+	if(aboutvisible) {
+		$('#aboutme').slideUp();
+		aboutvisible=false;
+		$('#hideabout').html('about');
+	}
+	else {
+		$('#aboutme').slideDown();
+		aboutvisible=true;
+		$('#hideabout').html('[hide about]');
+	}
+}
+
 function showbio() {
-$('#bio').show();
+if(changebtn) {
+	$('#btn').html('Read more');
+	$('#bio').hide();
+	changebtn=false;
+}
+else {
+	$('#btn').html('Read less');
+	$('#bio').show();
+	changebtn=true;
+}
 }
 
 function hidebio() {
