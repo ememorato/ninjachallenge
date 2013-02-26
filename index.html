@@ -15,8 +15,9 @@
     				<ul class="nav">
     					<li><a href="index.html"><i class="icon-home icon-white center"></a></i></li>
     				<li class="span2"><a class="brand" href="index.html">ememorato</a></li>
-    				<li class"span2"><a class="brand" href="blog.html">blog</a></li>
+    				<li><a class="brand" href="blog.html">blog</a></li>
     				<li><a id="hideabout" onclick="showabout();return false;" class="brand" href="#">about</a></li>
+                    <li><a onclick="showidea();return false;" class="brand" href="#">idea</a></li>
     			</ul>
     			</div>
     		</div>
@@ -31,9 +32,6 @@
     			<button id="btn" class="btn btn-inverse btn-large" onclick="showbio();return false;">Read more</button>
     		</div>
     	</div>
-    	<div id="aboutme" class="hide">
-    		<iframe src="http://about.me/ememorato" width="100%" height="800"></iframe>
-    	</div>
     	<div id="bio" class="container hide row">
     		<div class="span6 offset1">
     		<h2>How it all began...</h2>
@@ -42,13 +40,36 @@
     		</div>
     		<div class="span3 offset1">
     		<img src="manu.jpg" class="img-rounded">
-    		</div>
-    	</div>
+    	   </div>
+        </div>
+         <div id="idea" class="container hide row">
+            <div class="span3 offset1">
+            <img src="reflect.jpg" class="img-rounded" style="margin:50px;">
+            </div>
+            <div class="span5 offset1">
+            <h2>Hoy tuve una idea.</h2>
+            <p style="text-align:justify;">Siempre estoy cazando buenas ideas. Tengo una errada creencia deque soy un tipo que no tiene muchas ideas. Hoy me di cuenta que el problema es que no hago sesiones de ideación tan frecuentemente como debería. La idea que hoy se me ocurrió es una plataforma para hacerle la vida más fácil a los emprendedores en México, no sólo para operar sus proyectos, sino para también conectar con gente que necesitan conocer, para conectarse también con todo lo que acontece en el ecosistema emprendedor y tener acceso a herramientas educativas valiosas para ellos. La burbuja del ecosistema emprendedor mexicano, sobre todo la del DF, no debería de ser tan exclusiva. Quiero abrirla y hacerla accesible para cualquiera que tenga talento, ganas y actitud para emprender.</p>
+            </div>
+            <div class="span1">
+            <button class="btn btn-inverse btn-small" onclick="hideidea();return false;" style="margin-top:130px;">Back</button>
+            </div>
+        </div>
+        <div id="aboutme" class="hide">
+            <iframe src="http://about.me/ememorato" width="100%" height="800"></iframe>
+        </div>
 </body>
 <script>
 
 var aboutvisible=false;
 var changebtn=false;
+
+function showidea() {
+    $('#idea').show();
+}
+
+function hideidea() {
+    $('#idea').hide();
+}
 
 function showabout() {
 	if(aboutvisible) {
